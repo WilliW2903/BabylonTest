@@ -49,48 +49,22 @@
     var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
     light.intensity = 0.7;
 
-    var sphere = BABYLON.MeshBuilder.CreateSphere("sphere1", {diameter: 0.5, segments: 32}, scene);
-    sphere.position.y = 0.5;
-    var sphere = BABYLON.MeshBuilder.CreateSphere("sphere2", {diameter: 0.5, segments: 32}, scene);
+    var sphere = BABYLON.MeshBuilder.CreateSphere("sphere1", {diameter: 2, segments: 32}, scene);
     sphere.position.y = 1;
-    var sphere = BABYLON.MeshBuilder.CreateSphere("sphere3", {diameter: 0.5, segments: 32}, scene);
-    sphere.position.y = 1.5;
-    var sphere = BABYLON.MeshBuilder.CreateSphere("sphere4", {diameter: 0.5, segments: 32}, scene);
-    sphere.position.y = 2;
-    var sphere = BABYLON.MeshBuilder.CreateSphere("sphere5", {diameter: 0.5, segments: 32}, scene);
-    sphere.position.y = 2.5;
-    var sphere = BABYLON.MeshBuilder.CreateSphere("sphere6", {diameter: 0.5, segments: 32}, scene);
-    sphere.position.y = 3;
-    var sphere = BABYLON.MeshBuilder.CreateSphere("sphere7", {diameter: 0.5, segments: 32}, scene);
-    sphere.position.y = 3.5;
-    var sphere = BABYLON.MeshBuilder.CreateSphere("sphere8", {diameter: 0.5, segments: 32}, scene);
-    sphere.position.y = 4;
-    var sphere = BABYLON.MeshBuilder.CreateSphere("sphere1", {diameter: 0.5, segments: 32}, scene);
-    sphere.position.y = 0.5;
-    var sphere = BABYLON.MeshBuilder.CreateSphere("sphere2", {diameter: 0.5, segments: 32}, scene);
-    sphere.position.y = 1;
-    sphere.position.x = 1;
-    var sphere = BABYLON.MeshBuilder.CreateSphere("sphere3", {diameter: 0.5, segments: 32}, scene);
-    sphere.position.y = 1.5;
-    sphere.position.x = 1;
-    var sphere = BABYLON.MeshBuilder.CreateSphere("sphere4", {diameter: 0.5, segments: 32}, scene);
-    sphere.position.y = 2;
-    sphere.position.x = 1;
-    var sphere = BABYLON.MeshBuilder.CreateSphere("sphere5", {diameter: 0.5, segments: 32}, scene);
-    sphere.position.y = 2.5;
-    sphere.position.x = 1;
-    var sphere = BABYLON.MeshBuilder.CreateSphere("sphere6", {diameter: 0.5, segments: 32}, scene);
-    sphere.position.y = 3;
-    sphere.position.x = 1;
-    var sphere = BABYLON.MeshBuilder.CreateSphere("sphere7", {diameter: 0.5, segments: 32}, scene);
-    sphere.position.y = 3.5;
-    sphere.position.x = 1;
-    var sphere = BABYLON.MeshBuilder.CreateSphere("sphere8", {diameter: 0.5, segments: 32}, scene);
-    sphere.position.y = 4;
-    sphere.position.x = 1;
+    window.addEventListener("keydown", function(event){
+        var key = event.keyCode;
+        if (key == 37) sphere.position.x--; //links
+        if (key == 38) sphere.position.z++; //hoch
+        if (key == 39) sphere.position.x++; //rechts
+        if (key == 40) sphere.position.z--; //runter
+        if (key == 13) {
+            sphere.position.z = 0;
+            sphere.position.x = 0;
+        }
+    })
 
     
-    var ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 6, height: 6}, scene);
+    var ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 100, height: 100}, scene);
     return scene;
 };
                 window.initFunction = async function() {
