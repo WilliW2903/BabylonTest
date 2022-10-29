@@ -61,6 +61,44 @@
 
         var ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 100, height: 100}, scene);
         ground.material = GroundMaterial;
+
+        window.addEventListener("keydown", function(event){
+            var left = -45; var right = 45;
+            var back = -45; var front = 45;
+            var down = -10; var up = 50;
+            var diff = 01
+            var key = event.keyCode;
+            if (key == 37) 
+                if (sphere.position.x > left)
+                    sphere.position.x-= diff; 
+                else sphere.position.x = right;
+            if (key == 38) 
+                if (sphere.position.z < front)
+                    sphere.position.z+= diff; 
+                else sphere.position.z = back;
+            if (key == 39) 
+                if (sphere.position.x < right)
+                    sphere.position.x+= diff;
+                else sphere.position.x = left;
+            if (key == 40)
+                if (sphere.position.z > back) 
+                    sphere.position.z-= diff;
+                else sphere.position.z = front;
+            if (key == 50)
+                if (sphere.position.y < up) 
+                    sphere.position.y+= diff;
+                else sphere.position.y = down;
+            if (key == 49) 
+                if (sphere.position.y > down)
+                    sphere.position.y-= diff;
+                else sphere.position.y = up;
+            if (key == 13) {
+                sphere.position.z = 0;
+                sphere.position.x = 0;
+                sphere.position.y = 1;
+            }
+        })
+
         return scene;
     };
         window.initFunction = async function() {
