@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <title>Projekt 3a</title>
+
+        <!-- Babylon.js -->
+        <script src="https://preview.babylonjs.com/babylon.js"></script>
+
+        <style>
+            html, body {
+                overflow: hidden;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            #renderCanvas {
+                width: 100%;
+                height: 100%;
+                touch-action: none;
+            }
+        </style>
+    </head>
+<body>
+    <canvas id="renderCanvas"></canvas>
+    <script>
+        var canvas = document.getElementById("renderCanvas");
+
+        var startRenderLoop = function (engine, canvas) {
+            engine.runRenderLoop(function () {
+                if (sceneToRender && sceneToRender.activeCamera) {
+                    sceneToRender.render();
+                }
+            });
+        }
+
+        var engine = null;
+        var scene = null;
+        var sceneToRender = null;
+        var createDefaultEngine = function() { return new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true,  disableWebGL2Support: false}); };
+        var createScene = function () {
+        var scene = new BABYLON.Scene(engine);
+        var camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
+        camera.setTarget(BABYLON.Vector3.Zero());
+        camera.attachControl(canvas, true);
+        var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
+        light.intensity = 0.5;
+        
+        var sphere = BABYLON.MeshBuilder.CreateSphere("sphere1", {diameter: 2, segments: 32}, scene);
+        var SphereMaterial = new BABYLON.StandardMaterial("sphere", scene);
+        var SphereTexture = new BABYLON.Texture("Texturen/holz.jpg", scene);
+        SphereMaterial.diffuseColor = new BABYLON.Color3(1,1,0);
+        SphereMaterial.emissiveColor = new BABYLON.Color3(1,1,0);
+        sphere.position.y = 1
+        SphereMaterial.alpha =0.5;
+        sphere.material = SphereMaterial;
+        var GroundMaterial = new BABYLON.StandardMaterial("ground", scene);
+        var GroundTexture = new BABYLON.Texture("Texturen/stein.jpg", scene);
+        GroundMaterial.diffuseTexture = GroundTexture;
+        GroundMaterial.diffuseTexture.uScale = 6.0;
+        GroundMaterial.diffuseTexture.vScale = 6.0;
+        var ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 12, height: 12}, scene);
+        ground.material = GroundMaterial;
+
+        
+
+        return scene;
+    };
+        window.initFunction = async function() {
+            
+            
+        var asyncEngineCreation = async function() {
+            try {
+            return createDefaultEngine();
+            } catch(e) {
+            console.log("the available createEngine function failed. Creating the default engine instead");
+            return createDefaultEngine();
+            }
+        }
+
+        window.engine = await asyncEngineCreation();
+        if (!engine) throw 'engine should not be null.';
+        startRenderLoop(engine, canvas);
+        window.scene = createScene();};
+        initFunction().then(() => {sceneToRender = scene                    
+        });
+
+        // Resize
+        window.addEventListener("resize", function () {
+            engine.resize();
+        });
+    </script>
+</body>
+</html>
+
+
+

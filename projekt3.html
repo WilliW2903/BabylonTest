@@ -5,126 +5,16 @@
 
         <title>Projekt 3</title>
 
-        <!-- Babylon.js -->
         <script src="https://preview.babylonjs.com/babylon.js"></script>
-
-        <style>
-            html, body {
-                overflow: hidden;
-                width: 100%;
-                height: 100%;
-                margin: 0;
-                padding: 0;
-            }
-
-            #renderCanvas {
-                width: 100%;
-                height: 100%;
-                touch-action: none;
-            }
-        </style>
     </head>
 <body>
-    <canvas id="renderCanvas"></canvas>
-    <script>
-        var canvas = document.getElementById("renderCanvas");
+    <li>
+        <a href="projekt3a.html">Projekt 3a</a>
+    </li>
+    <li>
+        <a href="projekt3b.html">Projekt 3b</a>
+    </li>
 
-        var startRenderLoop = function (engine, canvas) {
-            engine.runRenderLoop(function () {
-                if (sceneToRender && sceneToRender.activeCamera) {
-                    sceneToRender.render();
-                }
-            });
-        }
-
-        var engine = null;
-        var scene = null;
-        var sceneToRender = null;
-        var createDefaultEngine = function() { return new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true,  disableWebGL2Support: false}); };
-        var createScene = function () {
-        var scene = new BABYLON.Scene(engine);
-        var camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
-        camera.setTarget(BABYLON.Vector3.Zero());
-        //camera.attachControl(canvas, true);
-        var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
-        light.intensity = 0.5;
-        
-        var sphere = BABYLON.MeshBuilder.CreateSphere("sphere1", {diameter: 2, segments: 32}, scene);
-        var SphereMaterial = new BABYLON.StandardMaterial("sphere", scene);
-        var SphereTexture = new BABYLON.Texture("Texturen/holz.jpg", scene);
-        SphereMaterial.diffuseTexture = SphereTexture;
-        sphere.position.y = 1
-        sphere.material = SphereMaterial;
-        var GroundMaterial = new BABYLON.StandardMaterial("ground", scene);
-        var GroundTexture = new BABYLON.Texture("Texturen/stein.jpg", scene);
-        GroundMaterial.diffuseTexture = GroundTexture;
-
-        var ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 100, height: 100}, scene);
-        ground.material = GroundMaterial;
-
-        window.addEventListener("keydown", function(event){
-            var left = -45; var right = 45;
-            var back = -45; var front = 45;
-            var down = -10; var up = 50;
-            var diff = 01
-            var key = event.keyCode;
-            if (key == 37) 
-                if (sphere.position.x > left)
-                    sphere.position.x-= diff; 
-                else sphere.position.x = right;
-            if (key == 38) 
-                if (sphere.position.z < front)
-                    sphere.position.z+= diff; 
-                else sphere.position.z = back;
-            if (key == 39) 
-                if (sphere.position.x < right)
-                    sphere.position.x+= diff;
-                else sphere.position.x = left;
-            if (key == 40)
-                if (sphere.position.z > back) 
-                    sphere.position.z-= diff;
-                else sphere.position.z = front;
-            if (key == 50)
-                if (sphere.position.y < up) 
-                    sphere.position.y+= diff;
-                else sphere.position.y = down;
-            if (key == 49) 
-                if (sphere.position.y > down)
-                    sphere.position.y-= diff;
-                else sphere.position.y = up;
-            if (key == 13) {
-                sphere.position.z = 0;
-                sphere.position.x = 0;
-                sphere.position.y = 1;
-            }
-        })
-
-        return scene;
-    };
-        window.initFunction = async function() {
-            
-            
-        var asyncEngineCreation = async function() {
-            try {
-            return createDefaultEngine();
-            } catch(e) {
-            console.log("the available createEngine function failed. Creating the default engine instead");
-            return createDefaultEngine();
-            }
-        }
-
-        window.engine = await asyncEngineCreation();
-        if (!engine) throw 'engine should not be null.';
-        startRenderLoop(engine, canvas);
-        window.scene = createScene();};
-        initFunction().then(() => {sceneToRender = scene                    
-        });
-
-        // Resize
-        window.addEventListener("resize", function () {
-            engine.resize();
-        });
-    </script>
 </body>
 </html>
 
