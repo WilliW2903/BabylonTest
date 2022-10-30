@@ -88,7 +88,6 @@
         sphere.material = SphereMaterial;
         return sphere;
     }
-
     function createArea (scene) {
         var GroundMaterial = new BABYLON.StandardMaterial("ground", scene);
         var GroundTexture = new BABYLON.Texture("Texturen/stein.jpg", scene);
@@ -100,7 +99,6 @@
         ground.physicsImpostor = new BABYLON.PhysicsImpostor(ground, BABYLON.PhysicsImpostor.GroundImpostor, {mass:0}, scene);
         return ground
     }
-
     function movePlayer (sphere) {
         window.addEventListener("keydown", function(event){
             var left = -10; var right = 10;
