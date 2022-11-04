@@ -28,36 +28,17 @@ function createObstacle (x,z,scene){
     return obsctacle;
 }
 function movePlayer (player) {
-    window.addEventListener("keydown", function(event){
-        var left = -10.5; var right = 10.5;
-        var back = -10.5; var front = 10.5;
-        var diff = 0.5;
-        var key = event.key;
-        if (key == "ArrowRight") {
-            if (player.position.x > left)
-                player.position.x -= diff;
-            player.angle = -Math.PI/2;
-        }
-        if (key == "ArrowDown") {
-            if (player.position.z < front)
-                player.position.z += diff;
-            player.angle = Math.PI;
-        } 
-        if (key == "ArrowLeft") {
-            if (player.position.x < right)
-                player.position.x += diff;
-            player.angle = Math.PI/2; 
-        }
-        if (key == "ArrowUp") {
-            if (player.position.z > back) 
-                player.position.z -= diff;
-            player.angle = 0; 
-        }
-        if (key == "Enter") {
-            player.position.x = 0;
-            player.position.z = 0;
-            player.position.y = 0.1;
-            player.angle = 0;
+    window.addEventListener("click", function(event){
+        var pickResult = scene.pick(event.clientX, event.clientY);
+        if (pickResult.hit) {
+            var xDiff = pickResult.pickedPoint.x - player.position.x;
+            var zDiff = pickResult.pickedPoint.z - player.position.z;
+            var distance = Math.sqrt(xDiff * xDiff + zDiff * zDiff);
+            var angle = Math.atan2(zDiff, xDiff);
+            angle = angle + Math.PI/2
+            player.angle = angle;
+            player.position.x += xDiff
+            player.position.z += zDiff
         }
     });
 }
