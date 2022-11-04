@@ -15,7 +15,7 @@ var createDefaultEngine = function() { return new BABYLON.Engine(canvas, true, {
 
 var createScene = function () {
     var scene = new BABYLON.Scene(engine);
-    var camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0,30,0), scene);
+    var camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0,40,0), scene);
     camera.setTarget(BABYLON.Vector3.Zero());
     var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
     light.intensity = 0.7;
