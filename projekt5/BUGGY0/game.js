@@ -22,12 +22,11 @@ var createScene = function () {
     light.specular = new BABYLON.Color3(0,0,0);
     scene.enablePhysics (new BABYLON.Vector3(0,-10,0),new BABYLON.OimoJSPlugin());
     var ground = createArea(scene);
-    //setLimits(scene);
-    for (Nr = 0; Nr <  5; Nr++)
-        createObstacle(Math.random()*22-12, Math.random()*22-12,scene);
+    /* for (Nr = 0; Nr <  5; Nr++)
+        createObstacle(Math.random()*22-12, Math.random()*22-12,scene);*/
     var player = createPlayer(scene);
     movePlayer(player);
-    camera.lockedTarget = player;
+    //camera.lockedTarget = player;
     return scene;
 };
 
