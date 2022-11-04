@@ -39,10 +39,18 @@ function movePlayer (player) {
             player.angle = angle;
             var x = xDiff/distance;
             var z = zDiff/distance;
-            for (Nr = 0; Nr < distance;Nr++){
-                player.position.x += x;
-                player.position.z += z;   
-            }
+            moveLoop (x, z, distance, 50, player)
         }
     });
+}
+function moveLoop (x, z, distance, time, player) {
+    var timer = setInterval(function(){
+        if (distance <= 0){
+            clearInterval(timer);
+            return;
+        }
+        player.position.x += x;
+        player.position.z += z;       
+        distance--; 
+    }, time);
 }
