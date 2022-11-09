@@ -8,7 +8,7 @@ function createPlayer(x,angle,z,size,scene) {
 }
 function createArea (scene) {
     var GroundMaterial = new BABYLON.StandardMaterial("ground", scene);
-    var GroundTexture = new BABYLON.Texture("../../Texturen/wiese.png", scene);
+    var GroundTexture = new BABYLON.Texture("../../../Texturen/wiese.png", scene);
     GroundMaterial.diffuseTexture = GroundTexture;
     GroundMaterial.diffuseTexture.uScale = 2.0;
     GroundMaterial.diffuseTexture.vScale = 2.0;
@@ -22,7 +22,7 @@ function createObstacle (x,z,scene){
     obsctacle.position = new BABYLON.Vector3(x,1,z)
     obsctacle.physicsImpostor = new BABYLON.PhysicsImpostor(obsctacle, BABYLON.PhysicsImpostor.SphereImpostor, {mass:1}, scene);
     var ObsctacleMaterial = new BABYLON.StandardMaterial("obstacle", scene);
-    var ObsctacleTexture = new BABYLON.Texture("../../Texturen/Mauer.png", scene);
+    var ObsctacleTexture = new BABYLON.Texture("../../../Texturen/Mauer.png", scene);
     ObsctacleMaterial.diffuseTexture = ObsctacleTexture;
     obsctacle.material = ObsctacleMaterial;
     return obsctacle;
@@ -39,18 +39,10 @@ function movePlayer (player) {
             player.angle = angle;
             var x = xDiff/distance;
             var z = zDiff/distance;
-            moveLoop (x, z, distance, 50, player)
+            for (Nr = 0; Nr < distance;Nr++){
+                player.position.x += x;
+                player.position.z += z;   
+            }
         }
     });
-}
-function moveLoop (x, z, distance, time, player) {
-    var timer = setInterval(function(){
-        if (distance <= 0){
-            clearInterval(timer);
-            return;
-        }
-        player.position.x += x;
-        player.position.z += z;       
-        distance--; 
-    }, time);
 }

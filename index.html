@@ -1,26 +1,42 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-        <title>Babylon.js Testprojekte</title>
-
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meine Projekte</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</head>
 <body>
-    <li>
-        <a href="projekt2.html">Projekt 2</a>
-    </li>
-    <li>
-        <a href="projekt3.html">Projekt 3</a>
-    </li>
-    <li>
-        <a href="projekt4/projekt4.html">Projekt 4</a>
-    </li>
-    <li>
-        <a href="projekt5/projekt5.html">Projekt 5</a>
-    </li>
-    <li>
-        <a href="projekt6/projekt6.html">Projekt 6</a>
-    </li>
+        <!-- The drawer is always open in large screens. The header is always shown,
+    even in small screens. -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+    mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <div class="mdl-layout-spacer"></div>
+        </div>
+      </header>
+    <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Projekte</span>
+    <nav class="mdl-navigation">
+    <a class="mdl-navigation__link" href="projekte/projekte.html">Übersicht</a>
+    <a class="mdl-navigation__link" href="projekte/projekt2.html" target = "page_content" onclick="document.getElementsByName('page_content')[0].focus()">Projekt1</a>
+    <a class="mdl-navigation__link" href="projekte/projekt3.html" target = "page_content" onclick="document.getElementsByName('page_content')[0].focus()">Projekt2</a>
+    <a class="mdl-navigation__link" href="projekte/projekt4/projekt4.html" target = "page_content" onclick="document.getElementsByName('page_content')[0].focus()">Projekt3</a>
+    <a class="mdl-navigation__link" href="projekte/projekt5/BUGGY0/BUGGY0.html" target = "page_content" onclick="document.getElementsByName('page_content')[0].focus()">BUGGY0</a>    
+    <a class="mdl-navigation__link" href="projekte/projekt5/BUGGY1/BUGGY1.html" target = "page_content" onclick="document.getElementsByName('page_content')[0].focus()">BUGGY1</a>
+    <a class="mdl-navigation__link" href="projekte/projekt5/BUGGY2/BUGGY2.html" target = "page_content" onclick="document.getElementsByName('page_content')[0].focus()">BUGGY2</a>    
+    <a class="mdl-navigation__link" href="projekte/projekt6/BUGGY3/BUGGY3.html" target = "page_content" onclick="document.getElementsByName('page_content')[0].focus()">BUGGY3</a>    
+    <a class="mdl-navigation__link" href="projekte/projekt6/BUGGY4/BUGGY4.html" target = "page_content" onclick="document.getElementsByName('page_content')[0].focus()">BUGGY4</a>           
+    </nav>
+    </div>
+    <main class="mdl-layout__content">
+    <div class="page-content"><iframe height="600px" name="page_content"></iframe></div>
+    </main>
+    </div>
+
 </body>
 </html>

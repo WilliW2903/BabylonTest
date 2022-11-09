@@ -1,7 +1,7 @@
 function createPlayer (scene) {
     var sphere = BABYLON.MeshBuilder.CreateSphere("sphere1", {diameter: 2, segments: 32}, scene);
     var SphereMaterial = new BABYLON.StandardMaterial("sphere", scene);
-    var SphereTexture = new BABYLON.Texture("../Texturen/holz.jpg", scene);
+    var SphereTexture = new BABYLON.Texture("../../Texturen/holz.jpg", scene);
     SphereMaterial.diffuseTexture = SphereTexture;
     sphere.position.y = 10;
     sphere.physicsImpostor = new BABYLON.PhysicsImpostor(sphere, BABYLON.PhysicsImpostor.SphereImpostor, {mass:1,restitution:0,friction:5}, scene);
@@ -10,7 +10,7 @@ function createPlayer (scene) {
 }
 function createArea (scene) {
     var GroundMaterial = new BABYLON.StandardMaterial("ground", scene);
-    var GroundTexture = new BABYLON.Texture("../Texturen/stein.jpg", scene);
+    var GroundTexture = new BABYLON.Texture("../../Texturen/stein.jpg", scene);
     GroundMaterial.diffuseTexture = GroundTexture;
     GroundMaterial.diffuseTexture.uScale = 6.0;
     GroundMaterial.diffuseTexture.vScale = 6.0;

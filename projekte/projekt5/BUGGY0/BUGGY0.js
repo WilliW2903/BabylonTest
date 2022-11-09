@@ -1,5 +1,5 @@
 function createPlayer (scene) {
-    var spriteManager = new BABYLON.SpriteManager("manager", "../../Texturen/holz_rund.png", 1, 256, scene);
+    var spriteManager = new BABYLON.SpriteManager("manager", "../../../Texturen/holz_rund.png", 1, 256, scene);
     var player = new BABYLON.Sprite("player",spriteManager);
     player.size = 2.0;
     player.position = new BABYLON.Vector3(0,1,0);
@@ -7,7 +7,7 @@ function createPlayer (scene) {
 }
 function createArea (scene) {
     var GroundMaterial = new BABYLON.StandardMaterial("ground", scene);
-    var GroundTexture = new BABYLON.Texture("../../Texturen/stein.jpg", scene);
+    var GroundTexture = new BABYLON.Texture("../../../Texturen/stein.jpg", scene);
     GroundMaterial.diffuseTexture = GroundTexture;
     GroundMaterial.diffuseTexture.uScale = 24.0;
     GroundMaterial.diffuseTexture.vScale = 24.0;
@@ -21,7 +21,7 @@ function createObstacle (x,z,scene){
     obsctacle.position = new BABYLON.Vector3(x,1,z)
     obsctacle.physicsImpostor = new BABYLON.PhysicsImpostor(obsctacle, BABYLON.PhysicsImpostor.SphereImpostor, {mass:1}, scene);
     var ObsctacleMaterial = new BABYLON.StandardMaterial("obstacle", scene);
-    var ObsctacleTexture = new BABYLON.Texture("../../Texturen/Mauer.png", scene);
+    var ObsctacleTexture = new BABYLON.Texture("../../../Texturen/Mauer.png", scene);
     ObsctacleMaterial.diffuseTexture = ObsctacleTexture;
     obsctacle.material = ObsctacleMaterial;
     return obsctacle;
