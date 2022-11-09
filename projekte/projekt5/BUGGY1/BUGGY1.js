@@ -1,5 +1,5 @@
 function createPlayer(x,angle,z,size,scene) {
-    var spriteManager = new BABYLON.SpriteManager("manager", "../../Texturen/Insekt2.png", 1, 256, scene);
+    var spriteManager = new BABYLON.SpriteManager("manager", "../../../Texturen/Insekt2.png", 1, 256, scene);
     var player = new BABYLON.Sprite("player",spriteManager);
     player.position = new BABYLON.Vector3(x,0.1,z);
     player.angle = angle;

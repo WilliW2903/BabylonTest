@@ -28,7 +28,7 @@ var createScene = function () {
     console.log("Aufruf createArea 2");
     /* for (Nr = 0; Nr <  5; Nr++)
         createObstacle(Math.random()*22-12, Math.random()*22-12,scene);*/
-    var player = createPlayer(0,0,0,3,"insekt1.png", scene);
+    var player = createPlayer(0,0,0,3,"Insekt1.png", scene);
     movePlayer(player,scene);
     moveLoop()
     //camera.lockedTarget = player;
