@@ -2,7 +2,7 @@ var Killed =false;
 var Start = false;
 console.log("BUGGY4.js geladen");
 function createPlayer(x,angle,z,size, txt, scene) {
-    var spriteManager = new BABYLON.SpriteManager("manager", "../../../Texturen/"+txt,2 , 256, scene);
+    var spriteManager = new BABYLON.SpriteManager("manager", "../../../../Texturen/"+txt,2 , 256, scene);
     var player = new BABYLON.Sprite("player",spriteManager);
     player.position = new BABYLON.Vector3(x,0.1,z);
     player.angle = angle;
@@ -13,7 +13,7 @@ function createPlayer(x,angle,z,size, txt, scene) {
 }
 function createArea (scene) {
     var GroundMaterial = new BABYLON.StandardMaterial("ground", scene);
-    var GroundTexture = new BABYLON.Texture("../../../Texturen/wiese.png", scene);
+    var GroundTexture = new BABYLON.Texture("../../../../Texturen/wiese.png", scene);
     GroundMaterial.diffuseTexture = GroundTexture;
     GroundMaterial.diffuseTexture.uScale = 2.0;
     GroundMaterial.diffuseTexture.vScale = 2.0;

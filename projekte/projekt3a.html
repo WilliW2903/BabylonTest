@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-        <title>Projekt 3a</title>
+        <title>Projekt 2a</title>
 
         <!-- Babylon.js -->
         <script src="https://preview.babylonjs.com/babylon.js"></script>
@@ -51,14 +51,14 @@
         
         var sphere = BABYLON.MeshBuilder.CreateSphere("sphere1", {diameter: 2, segments: 32}, scene);
         var SphereMaterial = new BABYLON.StandardMaterial("sphere", scene);
-        var SphereTexture = new BABYLON.Texture("Texturen/holz.jpg", scene);
+        var SphereTexture = new BABYLON.Texture("../Texturen/holz.jpg", scene);
         SphereMaterial.diffuseColor = new BABYLON.Color3(1,1,0);
         SphereMaterial.emissiveColor = new BABYLON.Color3(1,1,0);
         sphere.position.y = 1
         SphereMaterial.alpha =0.5;
         sphere.material = SphereMaterial;
         var GroundMaterial = new BABYLON.StandardMaterial("ground", scene);
-        var GroundTexture = new BABYLON.Texture("Texturen/stein.jpg", scene);
+        var GroundTexture = new BABYLON.Texture("../Texturen/stein.jpg", scene);
         GroundMaterial.diffuseTexture = GroundTexture;
         GroundMaterial.diffuseTexture.uScale = 6.0;
         GroundMaterial.diffuseTexture.vScale = 6.0;
