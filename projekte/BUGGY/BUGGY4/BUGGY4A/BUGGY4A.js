@@ -28,7 +28,7 @@ function movePlayer (player,scene) {
     window.addEventListener("click", function(event){
         Start = !Start;
         var pickResult = scene.pick(event.clientX, event.clientY);
-        if (pickIntersect(pickResult.pickedPoint, player.position, 2)) {
+        if (pickIntersect(pickResult.pickedPoint, player.position, 0.1)) {
             player.cellIndex = 1;
             Killed = true;
         }
