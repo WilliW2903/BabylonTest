@@ -26,8 +26,9 @@ function pickIntersect (point, pos, diff) {
 }
 function movePlayer (player,scene) {
     window.addEventListener("click", function(event){
+        Start = !Start;
         var pickResult = scene.pick(event.clientX, event.clientY);
-        if (pickIntersect(pickResult.PickedPoint, player.position, 2)) {
+        if (pickIntersect(pickResult.pickedPoint, player.position, 2)) {
             player.cellIndex = 1;
             Killed = true;
         }
@@ -36,6 +37,7 @@ function movePlayer (player,scene) {
             if (x == 0) x = -1;
             var z = Math.round(Math.random());
             if (z == 0) z = -1;
+            moveLoop(x,z,150,player);
         }
     });
 }
