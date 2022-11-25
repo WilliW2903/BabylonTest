@@ -24,10 +24,12 @@ var createScene = function () {
     console.log("Aufruf createArea");
     var ground = createArea(scene);
     
-    console.log("Aufruf createArea 2");
-    for (Nr = 0; Nr > 5;  Nr++)
+    console.log("Aufruf createArea 2");7
+    var player = new Array(5);
+    for (Nr = 0; Nr < 5;  Nr++){
         player[Nr] = createPlayer(Math.random()*20-10, 0, Math.random()*10-5, 2, "../../../../Texturen/Insekt1.png", scene);
-    movePlayer(player[Nr],scene);
+        movePlayer(player[Nr], scene);
+    }
     return scene;
 };
 
